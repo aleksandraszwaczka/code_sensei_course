@@ -1,23 +1,9 @@
 require 'pg'
 require 'csv'
+require './query_builder'
 
-def is_official(param)
-  if param == 'is_official'
-    'AND countrylanguage.isofficial = true'
-  elsif param == 'is_not_official'
-    'AND countrylanguage.isofficial = false'
-  else
-    ''
-  end
-end
 
-query = "SELECT city.district, SUM(city.population) FROM city
-JOIN country ON city.countrycode = country.code
-JOIN countrylanguage ON city.countrycode = countrylanguage.countrycode
-WHERE countrylanguage.language = '#{ARGV[0]}'
-  #{is_official(ARGV[1])}
-GROUP BY city.district
-ORDER BY SUM(city.population) DESC;"
+query = QueryBuilder.new(ARGV[0], ARGV[1]).call
 
 conn = PG.connect( dbname: 'ola' )
 conn.exec(query) do |result|
