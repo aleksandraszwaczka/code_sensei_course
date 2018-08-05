@@ -1,6 +1,6 @@
 require 'pg'
 require 'csv'
-require './query_builder'
+require './query_builder' #podpina stworzony przeze mnie plik 
 
 
 query = QueryBuilder.new(ARGV[0], ARGV[1]).call
