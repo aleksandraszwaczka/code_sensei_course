@@ -1,0 +1,12 @@
+Stwórz program, który stworzy raport w formacie csv.
+Raport powinien składać się z kolumn zawierających odpowiednio liczbę porządkową,
+nazwę dystryktu oraz liczbę osób używających języka w danym dystrykcie.
+
+Program powinien przyjmować za pomocą argumentów (ARGV) język oraz opcjonalny
+drugi parametr is_official/is_not_official, który określa czy w raporcie powinny się
+znaleźć dystrykty w których podany język jest oficjalnym językiem urzędowym lub nie.
+
+Przykładowe wywołania
+ruby language_reporter.rb English is_official
+ruby language_reporter.rb German is_not_official
+ruby language_reporter.rb Polish
