@@ -22,7 +22,6 @@ RSpec.describe Converter do
       end
     end
   end
-
   describe "#add_currency"  do
     context "when currency is not present yet" do
       let(:currencies) { { usd: 3.6334 } }
